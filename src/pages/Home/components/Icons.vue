@@ -62,7 +62,7 @@ export default{
            {
              id:'009',
              iconUrl:"http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
-             desc:"千岛湖"
+             desc:"千岛湖千岛湖"
            }
          ]
        }
