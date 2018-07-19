@@ -1,10 +1,10 @@
 <template>
   <div class="icons">
-    <swiper :options="swiperOption">
+    <swiper :options="swiperOption" v-if="showSwiper">
       <swiper-slide v-for="(page,index) in pages" :key="index">
         <div class="icon" v-for="item in page" :key="item.id">
           <div class="icon-img">
-            <img class="icon-img-content" :src="item.iconUrl" alt="">
+            <img class="icon-img-content" :src="item.imgUrl" alt="">
           </div>
           <p class="icon-desc">{{item.desc}}</p>
         </div>
@@ -17,59 +17,15 @@
 <script>
 export default{
     name:"HomeIcons",
+    props:{
+      iconList:Array
+    },
     data(){
        return{
          swiperOption:{
            pagination:".swiper-swiper-pagination-icon",
-           loop:true
+           loop:false
          },
-         iconList:[
-           {
-             id:'001',
-             iconUrl:"http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
-             desc:"景点门票景点门票"
-           },
-           {
-             id:'002',
-             iconUrl:"http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png",
-             desc:"一日游"
-           },
-           {
-             id:'003',
-             iconUrl:"http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
-             desc:"主题乐园"
-           },
-           {
-             id:'004',
-             iconUrl:"http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
-             desc:"漂流"
-           },
-           {
-             id:'005',
-             iconUrl:"http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
-             desc:"西湖"
-           },
-           {
-             id:'006',
-             iconUrl:"http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
-             desc:"夏日玩水"
-           },
-           {
-             id:'007',
-             iconUrl:"http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
-             desc:"宋城千古情"
-           },
-           {
-             id:'008',
-             iconUrl:"http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
-             desc:"杭州必游"
-           },
-           {
-             id:'009',
-             iconUrl:"http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
-             desc:"千岛湖千岛湖"
-           }
-         ]
        }
   },
   computed:{
@@ -83,6 +39,9 @@ export default{
               pages[page].push(item)
           } )
         return pages
+      },
+      showSwiper(){
+        return this.iconList.length
       }
   }
 }
