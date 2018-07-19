@@ -2,7 +2,7 @@
   <div class="wrapper">
     <swiper :options="swiperOption">
       <!-- slides -->
-      <swiper-slide v-for="item in swiperList" :key="item,id">
+      <swiper-slide v-for="item in swiperList" :key="item.id">
         <img class="swiper-img" :src="item.imgUrl" alt="">
       </swiper-slide>
       <!-- Optional controls -->
@@ -27,12 +27,12 @@
             },
             swiperList:[
               {
-                  id:"001",
-                  imgUrl:"http://img1.qunarzz.com/piao/fusion/1806/f5/ea83238744f31102.jpg_750x200_73b8477c.jpg"
+                  "id":"001",
+                  "imgUrl":"http://img1.qunarzz.com/piao/fusion/1806/f5/ea83238744f31102.jpg_750x200_73b8477c.jpg"
               },
               {
-                id:"002",
-                imgUrl:"http://img1.qunarzz.com/piao/fusion/1806/3c/c72a1ccd4d7b2202.jpg_750x200_b88bbab4.jpg"
+                  "id":"002",
+                  "imgUrl":"http://img1.qunarzz.com/piao/fusion/1806/3c/c72a1ccd4d7b2202.jpg_750x200_b88bbab4.jpg"
               },
             ]
           }
