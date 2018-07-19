@@ -3,15 +3,17 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
 //移动端click延迟300ms的问题
 import fastClick from "fastclick"
 
+//引入iconfont.css图标库
+import "styles/iconfont.css" /*-----------这里能用styles路径的原因是在webpack.base,conf.js设置了alias（30line）----------*/
+
 //引入reset.css
-import "./assets/styles/reset.css"
+import "styles/reset.css"
 
 //1像素问题
-import "./assets/styles/border.css"
+import "styles/border.css"
 
 
 Vue.config.productionTip = false;
