@@ -61,4 +61,6 @@
       background :#ff9300
       padding 0 0.2rem
       border-radius :0.3rem
+      font-size:0.2rem
+      color:#eee
 </style>
