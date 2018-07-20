@@ -43,6 +43,9 @@ export default{
       showSwiper(){
         return this.iconList.length
       }
+  },
+  methods:{
+
   }
 }
 </script>

@@ -3,6 +3,10 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import { isPC } from "./common/js/common"
+
+import store from "./store"
+
 //移动端click延迟300ms的问题
 import fastClick from "fastclick"
 
@@ -23,7 +27,14 @@ import "styles/border.css"
 
 Vue.config.productionTip = false;
 
-fastClick.attach(document.body);
+
+
+//判断是否手机端访问
+// if (!isPC()) {
+//   console.log(111)
+//   fastClick.attach(document.body);
+// }
+// fastClick.attach(document.body);
 
 
 Vue.use(VueAwesomeSwiper)
@@ -31,6 +42,7 @@ Vue.use(VueAwesomeSwiper)
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

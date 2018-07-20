@@ -5,7 +5,7 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
             <div class="button-wrapper">
-              <div class="button">北京</div>
+              <div class="button">{{currentCity}}</div>
             </div>
         </div>
       </div>
@@ -15,6 +15,7 @@
           <div class="button-wrapper"
                v-for="hot in hotCities"
                :key="hot.id"
+               @click="selectHotCity(hot.name)"
           >
             <div class="button">{{hot.name}}</div>
           </div>
@@ -24,9 +25,14 @@
            v-for="(city,key) in cities"
            :key="key"
            :ref="key"
+
       >
         <div class="title border-topbottom">{{key}}</div>
-        <div class="item-list" v-for="item in city" :key="item.id">
+        <div class="item-list"
+             v-for="item in city"
+             :key="item.id"
+             @click="selectHotCity(item.name)"
+        >
           <div class="item border-bottom">{{item.name}}</div>
 
         </div>
@@ -37,6 +43,7 @@
 
 <script>
   import Bscroll from "better-scroll"
+  import { mapState, mapMutations } from "vuex"
   export default{
     name:'CityList',
     props:{
@@ -44,18 +51,35 @@
       hotCities:Array,
       letter:String
     },
+    computed:{
+      ...mapState({
+        currentCity:"city"
+      })
+    },
     mounted(){
         /*Better-scroll功能*/
-        this.scroll = new Bscroll(this.$refs.wrapper)
+        this.scroll = new Bscroll(this.$refs.wrapper,{click: true});
     },
     watch:{
       letter(){
           if(this.letter){
               const  element = this.$refs[this.letter][0];
-              this.scroll.scrollToElement(element)
+              this.scroll.scrollToElement(element, {click: true})
           }
       }
     },
+    methods:{
+      selectHotCity(city){
+//        this.$store.dispatch("changeCity",city)
+//        this.$store.commit("changeCity",city);
+
+        this.changeCity(city);
+        this.$router.push({
+          path:"/"
+        })
+      },
+      ...mapMutations(["changeCity"])
+    }
   }
 </script>
 
