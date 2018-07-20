@@ -7,6 +7,12 @@ import { isPC } from "./common/js/common"
 
 import store from "./store"
 
+
+/*vue-loadingd动效*/
+import VueLoading from 'vue-loading-template'
+Vue.use(VueLoading, /** options **/)
+
+
 //移动端click延迟300ms的问题
 import fastClick from "fastclick"
 
