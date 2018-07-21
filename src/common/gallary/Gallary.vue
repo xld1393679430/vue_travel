@@ -1,7 +1,7 @@
 <template>
   <div class="container" @click="handleGallaryClick">
     <div class="wrapper">
-      <swiper :options="swiperOption">
+      <swiper :options="swiperOption" v-if="imgs.length">
         <swiper-slide v-for="(item,index) in imgs" :key="index">
           <img class="swiper-img" :src="item" alt="">
         </swiper-slide>
@@ -57,8 +57,6 @@
   .wrapper
     background :#fff
     width:100%
-    height:0
-    padding-bottom :53.5%
     .swiper-img
       width:100%
     .swiper-pagination

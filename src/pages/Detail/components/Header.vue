@@ -33,7 +33,6 @@
     methods:{
       handleScroll(){
           const scrollTop = document.documentElement.scrollTop;
-          console.log(scrollTop)
           if(scrollTop > 60){
               let opacity = ( scrollTop / 140);
               opacity = opacity > 1 ? 1 : opacity;
@@ -70,6 +69,7 @@
     color: #ffffff
     font-size :0.3rem
 .header-fixed
+    z-index:2
     height:$headerHeght
     line-height $headerHeght
     text-align :center
